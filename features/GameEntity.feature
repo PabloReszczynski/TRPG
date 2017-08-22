@@ -8,3 +8,8 @@ Feature: Game Entity
     When a Game Entity is created and added to the state
     Then the state should update with the new Entity data
 
+  Scenario: Showing an Entity on a screen
+    Given an Entity with a Sprite, a GameState and a View
+    When the state is displayed in the view
+    Then the view should show the entity Sprite
+

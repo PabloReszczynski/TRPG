@@ -1,25 +1,11 @@
-from TRPG.view import ABCView
+from TRPG.view import StringView
 from TRPG.state import GameState
 from behave import *
 import sure
 
-class MockView:
-
-    def __init__(self):
-        super()
-        self.show_state = ''
-
-    def show(self, state):
-        self.show_state = state.state
-
-    def clear(self):
-        self.show_state = ''
-
-ABCView.register(MockView)
-
 @given(u'a game state, a view instance')
 def step_impl(context):
-    context.view = MockView()
+    context.view = StringView(14, 1)
     context.state = GameState()
     context.state.registerState('this is a map')
 

@@ -12,5 +12,11 @@ class GameEntity:
                 return False
         return True
 
+    def render(self):
+        if getattr(self, 'sprite') is not None:
+            return self.sprite.render()
+        else:
+            raise ValueError('This game entity doesnt have a Sprite!')
+
     def __repr__(self):
         return 'GameEntity %s' % repr(self.__dict__)
